@@ -1,4 +1,4 @@
-# SuperCharge To-Do App
+# To-Do App
 
 This is a simple to-do application built with React and Context API. It allows users to add, edit, and delete tasks.
 
