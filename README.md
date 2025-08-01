@@ -1,29 +1,104 @@
-# To-Do App
+# Dockerized Todo Application - IBM Cloud Deployment
 
-This is a simple to-do application built with React and Context API. It allows users to add, edit, and delete tasks.
+This is a containerized Todo application built with React and Context API, developed during IBM Project Based Experimental Learning. The application is containerized using Docker and deployed on IBM Cloud Container Registry.
 
-## Installation
+## Features
 
-1. Clone the repository: `git clone https://github.com/shubhamkumxr/Supercharge-To-Do-App.git`
-2. Navigate to the project directory: `cd Supercharge-To-Do-App`
-3. Install dependencies: `npm install`
+- Add, edit, and delete tasks
+- Persistent storage using localStorage
+- Containerized using Docker
+- Deployed on IBM Cloud
+- Responsive design with modern UI
 
-## Usage
+## Local Development
 
-1. Start the development server: `npm start`
-2. Open your browser and navigate to `http://localhost:3000`
-3. Follow the instructions to use the application.
+### Prerequisites
+- Node.js (v20 or higher)
+- npm or yarn
+- Docker
 
-## Contributing
+### Installation
 
-If you'd like to contribute to this project, please follow these steps:
+1. Clone the repository:
+```bash
+git clone https://github.com/shubham-kumr/todo-app.git
+cd todo-app
+```
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Open a pull request
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run locally:
+```bash
+npm run dev
+```
+
+## Docker Setup
+
+### Build Docker Image
+```bash
+docker build -t shubham-todo-app .
+```
+
+### Run Docker Container
+```bash
+docker run -d -p 3000:80 shubham-todo-app
+```
+
+The application will be available at `http://localhost:3000`
+
+## IBM Cloud Deployment
+
+The application is deployed on IBM Cloud using the following steps:
+
+1. Create IBM Cloud Container Registry namespace:
+```bash
+ibmcloud cr namespace-add shubham-namespace
+```
+
+2. Tag the Docker image:
+```bash
+docker tag shubham-todo-app icr.io/shubham-namespace/todo-app:v1
+```
+
+3. Push to IBM Cloud Container Registry:
+```bash
+docker push icr.io/shubham-namespace/todo-app:v1
+```
+
+## Technologies Used
+
+- React.js
+- Context API for state management
+- Docker for containerization
+- Nginx as web server
+- IBM Cloud Container Registry
+- Vite for build tool
+- Tailwind CSS for styling
+
+## Project Structure
+
+```
+todo-app/
+├── src/
+│   ├── components/
+│   ├── contexts/
+│   ├── App.jsx
+│   └── main.jsx
+├── Dockerfile
+├── package.json
+└── README.md
+```
+
 
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Acknowledgments
+
+- IBM Project Based Experimental Learning Program
+- Docker Documentation
+- IBM Cloud Documentation
